@@ -37,6 +37,16 @@ function isEven(num) {
 	}
 }
 
+function isEven(num) {
+	for (let i = num; i >= 0; i -= 2) {
+		if (i === 0) {
+			return true;
+		} else if (i === 1) {
+			return false;
+		}
+	}
+}
+
 console.log(isEven(50)); // true
 console.log(isEven(75)); // false
 console.log(isEven(-1)); // RangeError: Maximum call stack size exceeded
