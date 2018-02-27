@@ -48,6 +48,15 @@ function nth(list, num) {
 	}
 }
 
+function nth(list, num) {
+	let index = num;
+	if (index === 0) {
+		return list.value;
+	}
+	index--;
+	return nth(list.rest, num - 1);
+}
+
 console.log(arrayToList([10, 20]));
 // {value: 10, rest: {value: 20, rest: null}}
 console.log(arrayToList([10, 20,30]));
