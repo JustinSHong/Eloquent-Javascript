@@ -10,6 +10,12 @@
 function range (start, end, step = 1) {
 	let nums = [];
 
+	if (step < 0) {
+		for (let i = start; i >= end; i += step) {
+			nums.push(i);
+		}
+	}
+
 	for (let i = start; i <= end; i += step) {
 		nums.push(i);
 	}
