@@ -14,6 +14,12 @@ function every(array, test) {
 	return true;
 }
 
+function every(array, test) {
+	return !array.some(function(el) {
+    	return !test(el);
+    });
+}
+
 every([1, 3, 5], n => n < 10); // true
 every([2, 4, 16], n => n < 10); // false 
 every([], n => n < 10); // true
