@@ -14,6 +14,11 @@ function loop(n, test, body, update) {
 	loop(n, test, body, update);
 }
 
+function loop (n, test, body, update) {
+	for (let i = n; test(i); i = body(i)) {
+		update(i);
+	}
+}
 
 loop(3, n => n > 0, n => n - 1, console.log);
 // 3
