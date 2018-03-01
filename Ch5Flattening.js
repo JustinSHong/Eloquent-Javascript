@@ -8,6 +8,17 @@ function flatten(arr) {
 	})
 }
 
+function flatten(arr) {
+	let result = [];
+
+	for (let subArrs of arr) {
+		for (let elements of subArrs) {
+			result.push(elements);
+		}
+	}
+	return result;
+}
+
 let arrays = [[1, 2, 3], [4, 5], [6]];
 
 
