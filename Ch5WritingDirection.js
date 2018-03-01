@@ -26,5 +26,14 @@ function dominantDirection(text) {
 	}
 }
 
+function dominantDirection(text) {
+	let direction = countBy (text, char => {
+		let script = characterScript(char.codePointAt(0));
+		return script ? script.direction : "none";
+	}).filter(({name}) => name != "none");
+
+	return direction.reduce((a,b) => a.count > b.count ? a : b).name;
+}
+
 dominantDirection("Hello!"); // ltr
 dominantDirection("Hey, مساء الخير"); // rtl
