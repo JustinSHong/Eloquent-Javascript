@@ -51,23 +51,23 @@ Group.prototype[Symbol.iterator] = function() {
 
 // instances of GroupIterator tracks the current position in the group
 class GroupIterator {
-	constructor(position, group) {
+	constructor(group) {
 		this.position = 0;
 		this.group = group;
 	}
 	// Prototype methods
   next() {
   	// check if last value in the group has been called
-  	if (this.position = this.group.length - 1) {
+  	if (this.position >= this.group.group.length) {
   		return {done: true};
   	}
   	// if not, iterate position and return the next value
   	let value = {
-  		position: this.position,
-  		value: this.group.get(this.group[position])
+  		value: this.group.group[this.position],
+  		done: false
   	}
   	this.position++;
-  	return {value, done: false};
+  	return value;
   }
 }
 
