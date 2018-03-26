@@ -41,18 +41,35 @@ class Group {
 	}
 }
 
+// connect Group with its Groupiterator
+Group.prototype[Symbol.iterator] = function() {
+	// use symbol to create an iterator for Group
+	// return new instance of GroupIterator on instance of Group
+		// to iterate over group iterable
+	return new GroupIterator(this);
+}
+
 // instances of GroupIterator tracks the current position in the group
 class GroupIterator {
-	constructor(position) {
+	constructor(position, group) {
 		this.position = 0;
+		this.group = group;
 	}
 	// Prototype methods
   next() {
   	// check if last value in the group has been called
+  	if (this.position = this.group.length - 1) {
+  		return {done: true};
+  	}
   	// if not, iterate position and return the next value
+  	let value = {
+  		position: this.position,
+  		value: this.group.get(this.group[position])
+  	}
+  	this.position++;
+  	return {value, done: false};
   }
 }
-
 
 // test cases
 let array = ['a', 'b', 'c'];
